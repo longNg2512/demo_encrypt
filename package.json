@@ -1,0 +1,14 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "longNH",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
