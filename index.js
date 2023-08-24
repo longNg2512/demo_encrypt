@@ -5,9 +5,9 @@ import crypto from 'crypto'
 // Đường dẫn đến file gốc
 // Chưa handle mấy case sai đường dẫn, file rỗng các kiểu
 const filePath = 'test.jpg'
-// Đường dẫn đến file video đã mã hoá
+// Đường dẫn đến file đã mã hoá
 const encryptedFilePath = `encrypted_${filePath}`
-// Đường dẫn đến file video đã giải mã
+// Đường dẫn đến file đã giải mã
 const decryptedFilePath = `decrypted_${encryptedFilePath}`
 
 // Hàm tính và hiển thị file size
@@ -46,10 +46,10 @@ function encryptFile(filePath, encryptedFilePath, key, iv) {
   // Ghi lại thời gian bắt đầu
   const startTime = new Date()
 
-  // Tạo stream đọc file video gốc
+  // Tạo stream đọc file gốc
   const readStream = fs.createReadStream(filePath)
 
-  // Tạo stream ghi file video mã hoá
+  // Tạo stream ghi file mã hoá
   const writeStream = fs.createWriteStream(encryptedFilePath)
 
   // Tạo đối tượng mã hoá AES với IV và khóa
@@ -89,11 +89,11 @@ function decryptFile(encryptedFilePath, decryptedFilePath, key, iv) {
   // Ghi lại thời gian bắt đầu
   const startTime = new Date()
 
-  // Tạo stream đọc file video đã mã hoá
+  // Tạo stream đọc file đã mã hoá
   // Bug mãi chỗ này, không hiểu sao thêm {start: 16} lại được :v
   const readStream = fs.createReadStream(encryptedFilePath, { start: 16 })
 
-  // Tạo stream ghi file video giải mã
+  // Tạo stream ghi file giải mã
   const writeStream = fs.createWriteStream(decryptedFilePath)
 
   // Tạo đối tượng giải mã AES với IV và khóa
